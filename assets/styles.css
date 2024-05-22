@@ -1,20 +1,30 @@
-/* styles.css */
 body {
-    background: linear-gradient(135deg, #ffffff, #fc9dee); /* Angled gradient */
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0; 
+    background: linear-gradient(135deg, #000000, #ff00d9);
+    background-size: 200% 200%;
+    animation: moveGradient 15s ease infinite;
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0 0;
+    }
 }
 
 .header-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, #df51fc, #ffffff); /* Angled gradient */
+    background: linear-gradient(135deg, #ff00f2, #ffffff); /* Angled gradient */
     padding: 20px;
     border-radius: 3px;
     margin-bottom: 20px;
-    border: 5px inset #f9ccff;
+    border: 5px inset #ffffff;
 }
 
 .header {
@@ -24,26 +34,28 @@ body {
     font-size: 2em;
 }
 
+.upload-container {
+    display: flex; /* Add Flexbox */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
 .upload-heading {
-    align-items: left;
-    border-radius: 10px;
     color: #ffffff;
     font-weight: bold;
-    display: inline-block;
-    text-decoration: underline;
-    margin-bottom: 10px; /* Add margin bottom */
+    font-size: 1.5em;
+    margin-right: 10px; /* Add some margin between the heading and the upload container */
 }
 
 .upload {
     background-color: #ef7bfa;
     color: white;
     border: 1px dashed white;
-    border-radius: 20px;
+    border-radius: 10px;
     text-align: center;
-    padding: 10px;
-    width: 250px;
-    margin-bottom: 20px;
-    transition: background-color 0.3s ease;
+    padding: 8px 12px;
+    margin-left: 10px;
+    font-size: 0.9em;
 }
 
 .upload:hover {
@@ -51,37 +63,54 @@ body {
     border-color: #ffffff;
 }
 
-.dropdown-container {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-}
-
-.dropdown-label {
-    font-weight: bold;
-    color: #343a40;
-    margin-bottom: 5px;
-    display: block;
-}
-
 .graph-container {
-    background: #f8f9fa;
+    background-color: #f8f9fa; /* Add background color */
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid #ddd;
+    border: 5px inset #ddd;
+    margin: 10px 0;
+}
+
+.dropdown-container {
+    background-color: #faf8fa; /* Add background color */
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px inset #ff1cff;
+    margin: 10px 0;
+}
+
+.dropdownchart-container {
+    background-color: #faf8fa; /* Add background color */
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px inset #ff1cff;
     margin: 10px 0;
 }
 
 .graph {
     margin: 0; /* Remove default margin */
+    border: 5px inset #ff36fc
 }
 
-.banner-container {
-    background: linear-gradient(135deg, #df51fc, #ffffff); /* Angled gradient */
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border: 5px solid #f9ccff;
+/* styles.css */
+/* styles.css */
+/* styles.css */
+.instructions-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    padding: 5px;
+    margin-bottom: 0px;
+    border: 5px inset #ffffff
+}
+
+.instructions-heading {
+    color: #000000; /* Adjust the text color */
+    font-weight: bold;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.instructions-text {
+    color: #000000; /* Adjust the text color */
 }
