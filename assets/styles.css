@@ -1,0 +1,87 @@
+/* styles.css */
+body {
+    background: linear-gradient(135deg, #ffffff, #fc9dee); /* Angled gradient */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0; 
+}
+
+.header-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(135deg, #df51fc, #ffffff); /* Angled gradient */
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    border: 5px inset #f9ccff;
+}
+
+.header {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    font-size: 2em;
+}
+
+.upload-heading {
+    align-items: left;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: underline;
+    margin-bottom: 10px; /* Add margin bottom */
+}
+
+.upload {
+    background-color: #ef7bfa;
+    color: white;
+    border: 1px dashed white;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px;
+    width: 250px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.upload:hover {
+    background-color: #be2bf8;
+    border-color: #ffffff;
+}
+
+.dropdown-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+}
+
+.dropdown-label {
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.graph-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.graph {
+    margin: 0; /* Remove default margin */
+}
+
+.banner-container {
+    background: linear-gradient(135deg, #df51fc, #ffffff); /* Angled gradient */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 5px solid #f9ccff;
+}
