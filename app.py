@@ -286,7 +286,6 @@ def update_country_graphs(contents):
     else:
         return {}, {}
 
-# Callback to update total streams and earnings chart
 # Callback to update total streams chart
 @app.callback(
     Output('total-streams-chart', 'figure'),
@@ -310,12 +309,12 @@ def update_total_streams_chart(contents, selected_songs, selected_countries, sta
         # Filter by date range
         if start_date and end_date:
             df = df[(df['Reporting Date'] >= start_date) & (df['Reporting Date'] <= end_date)]
-
-        # Group by reporting date and aggregate streams
-        grouped_df = df.groupby('Reporting Date')['Quantity'].sum().reset_index()
-
-        # Create the chart
-        fig = px.line(grouped_df, x='Reporting Date', y='Quantity',
+        df = df.dropna(subset=['Reporting Date'])
+        # Group by reporting date and song title, and aggregate streams
+        grouped_df = df.groupby(['Reporting Date', 'Title'])['Quantity'].sum().reset_index()
+        grouped_df = grouped_df.sort_values(by='Reporting Date', ascending = True)
+        # Create the chart with different lines for each song
+        fig = px.line(grouped_df, x='Reporting Date', y='Quantity', color='Title',
                       title='Total Streams by Date',
                       labels={'Reporting Date': 'Date', 'Quantity': 'Total Streams'})
 
@@ -347,18 +346,19 @@ def update_total_earnings_chart(contents, selected_songs, selected_countries, st
         # Filter by date range
         if start_date and end_date:
             df = df[(df['Reporting Date'] >= start_date) & (df['Reporting Date'] <= end_date)]
-
-        # Group by reporting date and aggregate earnings
-        grouped_df = df.groupby('Reporting Date')['Earnings (USD)'].sum().reset_index()
-
-        # Create the chart
-        fig = px.line(grouped_df, x='Reporting Date', y='Earnings (USD)',
+        df = df.dropna(subset=['Reporting Date'])
+        # Group by reporting date and song title, and aggregate earnings
+        grouped_df = df.groupby(['Reporting Date', 'Title'])['Earnings (USD)'].sum().reset_index()
+        grouped_df = grouped_df.sort_values(by='Reporting Date', ascending = True)
+        # Create the chart with different lines for each song
+        fig = px.line(grouped_df, x='Reporting Date', y='Earnings (USD)', color='Title',
                       title='Total Earnings by Date',
                       labels={'Reporting Date': 'Date', 'Earnings (USD)': 'Total Earnings'})
 
         return fig
     else:
         return {}
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
